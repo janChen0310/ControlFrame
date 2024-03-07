@@ -3,17 +3,20 @@
 #include "RemoteControl.h"
 #include "Chassis.h"
 #include "Arm.h"
+#include "Jaw.h"
 
 extern RemoteControl remoteControl;
 extern Chassis chassis;
 extern Arm arm;
+extern Jaw jaw;
 
 void setup() {
-  Serial.begin(9600); // Communication with the computer
+  Serial.begin(115200); // Communication with the computer
   // put your setup code here, to run once:
   remoteControl.Init();
   chassis.Init();
   arm.Init();
+  jaw.Init();
 }
 
 void loop() {
@@ -21,4 +24,5 @@ void loop() {
   remoteControl.Handle();
   chassis.Handle();
   arm.Handle();
+  jaw.Handle();
 }
