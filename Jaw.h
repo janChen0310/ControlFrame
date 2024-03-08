@@ -5,7 +5,7 @@
 #include "RemoteControl.h"
 #include <Servo.h>
 
-#define ServoGrab 10
+#define ServoGrab 50
 #define ServoRotate 9
 
 class Jaw : public Device{

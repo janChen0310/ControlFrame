@@ -38,6 +38,8 @@ class RemoteControl : public Device, private PS2X{
       byte rightStickX;  // X coordinate of right stick
       byte rightStickY;  // Y coordinate of right stick
     };
+
+    void PrintButtons();
   private:
     /* begin your private prototypes here */
     ButtonStates buttonStates;

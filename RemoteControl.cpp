@@ -1,10 +1,27 @@
 #include "RemoteControl.h"
+#include <stdio.h>
 
 RemoteControl remoteControl;
 
 byte error;
 byte type;
 byte vibrate;
+
+void RemoteControl::PrintButtons()
+{
+  char message[5][128];
+  sprintf(message[0], "up = %d;\t down = %d;\t left = %d;\t right = %d", buttonStates.up, buttonStates.down, buttonStates.left, buttonStates.right);
+  sprintf(message[1], "R2 = %d;\t L2 = %d;\t R3 = %d;\t L3 = %d", buttonStates.R2, buttonStates.L2, buttonStates.R3, buttonStates.L3);
+  sprintf(message[2], "X = %d;\t Y = %d;\t A = %d;\t B = %d", buttonStates.X, buttonStates.Y, buttonStates.A, buttonStates.B);
+  sprintf(message[3], "lsX = %d;\t lsY = %d;\t rsX = %d;\t, rsY = %d", buttonStates.leftStickX, buttonStates.leftStickY, buttonStates.rightStickX, buttonStates.rightStickY);
+  sprintf(message[4], "select = %d;\t start = %d;", buttonStates.select, buttonStates.start);
+
+  Serial.println(message[0]);
+  Serial.println(message[1]);
+  Serial.println(message[2]);
+  Serial.println(message[3]);
+  Serial.println(message[4]);
+}
 
 void RemoteControl::Init()
 {
