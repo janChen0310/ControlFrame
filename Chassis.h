@@ -7,12 +7,12 @@
 #define L1_IN1 9
 #define L1_IN2 10
 #define L1_ENA 8
-#define L2_IN1 4
+#define L2_IN1 20 //TODO:更换电机引脚
 #define L2_IN2 3
 #define L2_ENA 2
 #define L3_IN1 6
 #define L3_IN2 5
-#define L3_ENA 7
+#define L3_ENA 21
 #define L4_IN1 11
 #define L4_IN2 12
 #define L4_ENA 13
