@@ -7,7 +7,7 @@ void Jaw::Init() {
   grab.attach(ServoGrab);
   rotate.attach(ServoRotate);
   // reset servos
-  grab.write(0);
+  grab.write(180);
   rotate.write(90);
 }
 
@@ -22,6 +22,8 @@ void Jaw::Handle() {
 
   if(angle_g > 180)angle_g = 180;
   else if(angle_g < 0)angle_g = 0;
+
+  Serial.println(angle_g);
 
   
   if(grab.read() != angle_g)grab.write(angle_g);

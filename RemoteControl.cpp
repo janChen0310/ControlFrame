@@ -78,16 +78,16 @@ void RemoteControl::Handle()
   PS2X::read_gamepad(); // Read PS2 controller input
 
   // Read button states and pack them into the structure
-  buttonStates.up = PS2X::Button(PSB_PAD_UP);
-  buttonStates.right = PS2X::Button(PSB_PAD_RIGHT);
+  // buttonStates.up = PS2X::Button(PSB_PAD_UP);
+  // buttonStates.right = PS2X::Button(PSB_PAD_RIGHT);
   buttonStates.down = PS2X::Button(PSB_PAD_DOWN);
   buttonStates.left = PS2X::Button(PSB_PAD_LEFT);
-  buttonStates.start = PS2X::Button(PSB_START);
-  buttonStates.select = PS2X::Button(PSB_SELECT);
-  buttonStates.R2 = PS2X::Button(PSB_R2);
-  buttonStates.L2 = PS2X::Button(PSB_L2);
-  buttonStates.R3 = PS2X::Button(PSB_R3);
-  buttonStates.L3 = PS2X::Button(PSB_L3);
+  // buttonStates.start = PS2X::Button(PSB_START);
+  // buttonStates.select = PS2X::Button(PSB_SELECT);
+  // buttonStates.R2 = PS2X::Button(PSB_R2);
+  // buttonStates.L2 = PS2X::Button(PSB_L2);
+  // buttonStates.R3 = PS2X::Button(PSB_R3);
+  // buttonStates.L3 = PS2X::Button(PSB_L3);
   buttonStates.X = PS2X::Button(PSB_SQUARE); // Mapping X to Square
   buttonStates.A = PS2X::Button(PSB_CROSS);   // Mapping A to Cross
   buttonStates.Y = PS2X::Button(PSB_TRIANGLE); // Unchanged mapping for Y

@@ -7,15 +7,17 @@ void Chassis::DriveWheel(int pwm, int IN1, int IN2, int ENA)
 {
   if(pwm >= 5)
   {
+    if(pwm > 255) pwm = 255;
     digitalWrite(IN1, HIGH);
     digitalWrite(IN2, LOW);
     analogWrite(ENA, pwm);
   }
   else if(pwm <= -5)
   {
+    if(pwm < -255) pwm = -255;
     digitalWrite(IN1, LOW);
     digitalWrite(IN2, HIGH);
-    analogWrite(ENA, pwm);
+    analogWrite(ENA, -pwm);
   }
   else
   {
@@ -54,11 +56,14 @@ void Chassis::Handle()
   if(Vy > -5 && Vy < 5)Vy = 0;
   if(W > -5 && W < 5)W = 0;
 
+  // Serial.print("W = ");
+  // Serial.print(W);
+
   //calculate velocity of each wheel
-  V1 = Vy - Vx + W*(Half_Width + Half_Length)/100;
-  V2 = Vy + Vx - W*(Half_Width + Half_Length)/100;
-  V3 = Vy - Vx - W*(Half_Width + Half_Length)/100;
-  V4 = Vy + Vx + W*(Half_Width + Half_Length)/100;
+  V1 = (Vy - Vx + W*(Half_Width + Half_Length)/20)*2;
+  V2 = (Vy + Vx - W*(Half_Width + Half_Length)/20)*2;
+  V3 = (Vy - Vx - W*(Half_Width + Half_Length)/20)*2;
+  V4 = (Vy + Vx + W*(Half_Width + Half_Length)/20)*2;
 
   // Serial.print("V1 = ");
   // Serial.print(V1);
@@ -75,7 +80,7 @@ void Chassis::Handle()
   // Serial.print("\n");
 
   DriveWheel(V2, L2_IN1, L2_IN2, L2_ENA);
-  DriveWheel(V3, L3_IN1, L3_IN2, L3_ENA);
-  DriveWheel(-V1, L1_IN1, L1_IN2, L1_ENA);
-  DriveWheel(-V4, L4_IN1, L4_IN2, L4_ENA);
+  DriveWheel(-V3, L3_IN1, L3_IN2, L3_ENA);
+  DriveWheel(V1, L1_IN1, L1_IN2, L1_ENA);
+  DriveWheel(V4, L4_IN1, L4_IN2, L4_ENA);
 }
